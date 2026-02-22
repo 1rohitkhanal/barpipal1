@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Item</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" height="100" width="100" alt="Bar Pipal Logo">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <main id="item-content">
+    <!-- JS will fill this -->
+  </main>
+
+  <script>
+    // Define your menu items with details
+    const menuItems = {
+      "classic-burger": {
+        name: "Classic Burger",
+        price: "Rs. 350",
+        img: "images/classic-burger.jpg",
+      },
+      "cheese-burger": {
+        name: "Cheese Burger",
+        price: "Rs. 400",
+        img: "images/cheese-burger.jpg",
+      },
+      "margherita": {
+        name: "Margherita Pizza",
+        price: "Rs. 500",
+        img: "images/margherita.jpg",
+      },
+      // Add all other items here...
+    };
+
+    // Get item name from URL
+    const params = new URLSearchParams(window.location.search);
+    const itemName = params.get("name");
+
+    const item = menuItems[itemName];
+
+    if (item) {
+      document.getElementById("item-content").innerHTML = `
+        <h1>${item.name}</h1>
+        <img src="${item.img}" alt="${item.name}" style="width:300px;">
+        <p>Price: ${item.price}</p>
+      `;
+    } else {
+      document.getElementById("item-content").innerHTML = "<p>Item not found!</p>";
+    }
+  </script>
+</body>
+</html>

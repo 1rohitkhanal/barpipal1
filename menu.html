@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Bar-Pipal Restaurant & Lodge</title>
+    <style>
+        :root {
+            --primary-green: #4CAF50; /* Fresh leaf green */
+            --dark-green: #2E7D32; /* Deep forest green for text/accents */
+            --milky-white: #FDFFF7; /* Soft, warm white */
+            --bg-color: #F3F8F3; /* Very faint green tint for the page background */
+            --text-color: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- Header & Navigation Styling --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--milky-white);
+            padding: 15px 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-bottom: 4px solid var(--primary-green);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo img {
+            display: block;
+            border-radius: 50%; /* Gives the logo a nice circular frame if needed */
+            object-fit: contain;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-green);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+        /* --- Menu Container Styling --- */
+        .menu-wrapper {
+            padding: 40px 20px;
+        }
+
+        .menu-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--milky-white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.1);
+            border: 1px solid #e0eadd;
+        }
+
+        .menu-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--dark-green);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 2rem;
+            border-bottom: 2px dotted var(--primary-green);
+            padding-bottom: 15px;
+        }
+
+        .menu-section {
+            margin-bottom: 45px;
+        }
+
+        .section-header {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 10px 18px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 8px 15px;
+            border-bottom: 1px dashed #c8e6c9;
+            transition: background-color 0.2s ease;
+        }
+
+        .menu-item:hover {
+            background-color: #f1f8e9;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-name {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            flex: 1;
+            color: var(--dark-green);
+        }
+
+        .item-desc {
+            display: block;
+            font-size: 0.8rem;
+            color: #555;
+            text-transform: capitalize;
+            margin-top: 5px;
+            font-style: italic;
+            font-weight: normal;
+        }
+
+        .item-price {
+            font-weight: bold;
+            font-size: 1.05rem;
+            margin-left: 15px;
+            min-width: 50px;
+            text-align: right;
+            color: var(--dark-green);
+        }
+
+        /* --- Special Table for Mo:Mo --- */
+        .momo-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--dark-green);
+        }
+
+        .momo-table th {
+            text-align: right;
+            padding: 10px;
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+        .momo-table th:first-child {
+            text-align: left;
+            background-color: transparent;
+            color: var(--dark-green);
+        }
+
+        .momo-table td {
+            text-align: right;
+            padding: 10px;
+            border-bottom: 1px dashed #c8e6c9;
+        }
+
+        .momo-table td:first-child {
+            text-align: left;
+        }
+        
+        .momo-table tr:hover td {
+            background-color: #f1f8e9;
+        }
+
+        /* --- Footer Styling --- */
+        .footer-info {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 2px solid var(--primary-green);
+            padding-top: 25px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .footer-info a {
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .footer-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px 20px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .menu-container {
+                padding: 20px;
+            }
+        }
+        .item-prices {
+           display: flex;
+            gap: 30px; /* Adjust spacing between Qtr and Full */
+            font-weight: bold;
+           color: var(--dark-green);
+        }
+
+.price-qtr, .price-full {
+    width: 50px; /* Ensures prices stay aligned in columns */
+    text-align: right;
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+      <img src="images/logo.png" height="100" width="100" alt="Bar Pipal Logo">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="menu-wrapper">
+    <div class="menu-container">
+        
+        <h1 class="menu-title">Our Menu</h1>
+
+        <div class="menu-section">
+            <div class="section-header">
+                <span>Hot Drinks</span>
+                <span>Rs.</span>
+            </div>
+            <div class="menu-item"><span class="item-name">Lemon Grass Tea</span><span class="item-price">50</span></div>
+            <div class="menu-item"><span class="item-name">Black Tea</span><span class="item-price">30</span></div>
+            <div class="menu-item"><span class="item-name">Black Tea With Ginger</span><span class="item-price">35</span></div>
+            <div class="menu-item"><span class="item-name">Lemon Tea</span><span class="item-price">40</span></div>
+            <div class="menu-item"><span class="item-name">Masala Milk Tea</span><span class="item-price">60</span></div>
+            <div class="menu-item"><span class="item-name">Milk Coffee</span><span class="item-price">100</span></div>
+            <div class="menu-item"><span class="item-name">Black Coffee</span><span class="item-price">50</span></div>
+            <div class="menu-item"><span class="item-name">Hot Lemon</span><span class="item-price">100</span></div>
+            <div class="menu-item"><span class="item-name">Hot Lemon With Honey</span><span class="item-price">120</span></div>
+            <div class="menu-item"><span class="item-name">Hot Lemon With Ginger</span><span class="item-price">150</span></div>
+        </div>
+
+        <div class="menu-section">
+            <div class="section-header">
+                <span>Beer</span>
+                <span>Rs.</span>
+            </div>
+            <div class="menu-item"><span class="item-name">Budweiser (650ML)</span><span class="item-price">550</span></div>
+            <div class="menu-item"><span class="item-name">Budweiser (330ML)</span><span class="item-price">280</span></div>
+            <div class="menu-item"><span class="item-name">Tuborg (650ML)</span><span class="item-price">600</span></div>
+            <div class="menu-item"><span class="item-name">Tuborg Can</span><span class="item-price">400</span></div>
+            <div class="menu-item"><span class="item-name">Gorkha Strong (650ML)</span><span class="item-price">480</span></div>
+            <div class="menu-item"><span class="item-name">Gorkha Can</span><span class="item-price">380</span></div>
+            <div class="menu-item"><span class="item-name">Mountain Ice</span><span class="item-price">400</span></div>
+            <div class="menu-item"><span class="item-name">Apple Cider</span><span class="item-price">280</span></div>
+        </div>
+
+       <div class="menu-section">
+    <div class="section-header">
+        <span>Hard Drinks (Local Liquor)</span>
+        <div style="display: flex; gap: 20px; font-size: 0.8rem;">
+            <span>Qtr</span>
+            <span>Full</span>
+        </div>
+    </div>
+    
+    <div class="menu-item">
+        <span class="item-name">Himalayan Reserve</span>
+        <div class="item-prices">
+            <span class="price-qtr">1120</span>
+            <span class="price-full">4150</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <span class="item-name">G&G</span>
+        <div class="item-prices">
+            <span class="price-qtr">970</span>
+            <span class="price-full">3800</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <span class="item-name">Black Chimney</span>
+        <div class="item-prices">
+            <span class="price-qtr">1150</span>
+            <span class="price-full">4400</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <span class="item-name">OD Regular</span>
+        <div class="item-prices">
+            <span class="price-qtr">920</span>
+            <span class="price-full">3450</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <span class="item-name">Signature</span>
+        <div class="item-prices">
+            <span class="price-qtr">800</span>
+            <span class="price-full">3100</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <span class="item-name">Kala Pathar</span>
+        <div class="item-prices">
+            <span class="price-qtr">950</span>
+            <span class="price-full">3700</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <span class="item-name">8848 Vodka</span>
+        <div class="item-prices">
+            <span class="price-qtr">780</span>
+            <span class="price-full">3000</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <span class="item-name">Ruslan Vodka Premium</span>
+        <div class="item-prices">
+            <span class="price-qtr">780</span>
+            <span class="price-full">3000</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <span class="item-name">Smiroff Vodka</span>
+        <div class="item-prices">
+            <span class="price-qtr">750</span>
+            <span class="price-full">2800</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <span class="item-name">Khukuri Rum</span>
+        <div class="item-prices">
+            <span class="price-qtr">750</span>
+            <span class="price-full">2800</span>
+        </div>
+    </div>
+</div>
+        <div class="menu-section">
+            <div class="section-header"><span>Lassi</span><span>Rs.</span></div>
+            <div class="menu-item"><span class="item-name">Plain Lassi</span><span class="item-price">120</span></div>
+            <div class="menu-item"><span class="item-name">Banana Lassi</span><span class="item-price">150</span></div>
+            <div class="menu-item"><span class="item-name">Mix Lassi</span><span class="item-price">180</span></div>
+
+            <div class="section-header" style="margin-top: 30px;"><span>Juice</span><span>Rs.</span></div>
+            <div class="menu-item"><span class="item-name">Seasonal Fresh Juice</span><span class="item-price">200</span></div>
+            <div class="menu-item"><span class="item-name">Lemon Juice</span><span class="item-price">100</span></div>
+            <div class="menu-item"><span class="item-name">Organic Sarbat</span><span class="item-price">150</span></div>
+
+            <div class="section-header" style="margin-top: 30px;"><span>Can Juice</span><span>Rs.</span></div>
+            <div class="menu-item"><span class="item-name">Badam Juice</span><span class="item-price">150</span></div>
+            <div class="menu-item"><span class="item-name">Mix Fruits Juice</span><span class="item-price">160</span></div>
+            <div class="menu-item"><span class="item-name">Pineapple Juice</span><span class="item-price">160</span></div>
+            <div class="menu-item"><span class="item-name">Real Mix Juice Big</span><span class="item-price">300</span></div>
+            <div class="menu-item"><span class="item-name">Real Cranbery Juice</span><span class="item-price">380</span></div>
+
+            <div class="section-header" style="margin-top: 30px;"><span>Soft Drinks</span><span>Rs.</span></div>
+            <div class="menu-item"><span class="item-name">Cold Coffee Milk/Black</span><span class="item-price">60/150</span></div>
+            <div class="menu-item"><span class="item-name">Soft Drinks Coke/ Pepsi (250ML)</span><span class="item-price">80</span></div>
+            <div class="menu-item"><span class="item-name">Soft Drinks Coke/ Pepsi (500ML)</span><span class="item-price">130</span></div>
+            <div class="menu-item"><span class="item-name">Red Bull Yellow</span><span class="item-price">180</span></div>
+            <div class="menu-item"><span class="item-name">Red Bull Blue</span><span class="item-price">350</span></div>
+            <div class="menu-item"><span class="item-name">Big Can Energy Drink</span><span class="item-price">250</span></div>
+        </div>
+
+        <div class="menu-section">
+            <div class="section-header"><span>Break Fast</span><span>Rs.</span></div>
+            <div class="menu-item">
+                <span class="item-name">Simple Breakfast
+                    <span class="item-desc">(Omlet, Sausage Fry, French Fry, Fruits Salad, Green Salad, Toast With Jam & Butter And Tea/Coffee)</span>
+                </span>
+                <span class="item-price">350</span>
+            </div>
+            <div class="menu-item"><span class="item-name">Masala Omlet</span><span class="item-price">150</span></div>
+            <div class="menu-item"><span class="item-name">Plain Omlet</span><span class="item-price">100</span></div>
+            <div class="menu-item"><span class="item-name">Fried Egg (One Side/ Both Side)</span><span class="item-price">100</span></div>
+            <div class="menu-item"><span class="item-name">Boiled Egg (2pc)</span><span class="item-price">100</span></div>
+            <div class="menu-item"><span class="item-name">Oats With Milk</span><span class="item-price">200</span></div>
+            <div class="menu-item"><span class="item-name">Oats Milk With Honey</span><span class="item-price">250</span></div>
+            <div class="menu-item"><span class="item-name">Oats Milk Kaju With Honey</span><span class="item-price">350</span></div>
+
+            <div class="section-header" style="margin-top: 30px;"><span>Salad</span><span>Rs.</span></div>
+            <div class="menu-item"><span class="item-name">Green Seasonal Salad</span><span class="item-price">180</span></div>
+            <div class="menu-item"><span class="item-name">Mix Boiled Vegetables</span><span class="item-price">180</span></div>
+            <div class="menu-item"><span class="item-name">Mix Veg & Non-Veg Boiled</span><span class="item-price">350</span></div>
+            <div class="menu-item"><span class="item-name">Mix Fruits Salad</span><span class="item-price">350</span></div>
+        </div>
+
+        <div class="menu-section">
+            <div class="section-header"><span>Non-Veg Snacks</span><span>Rs.</span></div>
+            <div class="menu-item"><span class="item-name">Chicken Sadeko</span><span class="item-price">320</span></div>
+            <div class="menu-item"><span class="item-name">Chicken Chilli</span><span class="item-price">350</span></div>
+            <div class="menu-item"><span class="item-name">Chicken Roast</span><span class="item-price">350</span></div>
+            <div class="menu-item"><span class="item-name">Chicken Lollipop</span><span class="item-price">350</span></div>
+            <div class="menu-item"><span class="item-name">Spicy Buffalo Wings</span><span class="item-price">350</span></div>
+            <div class="menu-item"><span class="item-name">Chicken Drumstick Spicy</span><span class="item-price">400</span></div>
+            <div class="menu-item"><span class="item-name">Buff Sadeko</span><span class="item-price">350</span></div>
+            <div class="menu-item"><span class="item-name">Buff Chilli</span><span class="item-price">350</span></div>
+            <div class="menu-item"><span class="item-name">Buff Sukiti</span><span class="item-price">300</span></div>
+            <div class="menu-item"><span class="item-name">Local Fish Fry</span><span class="item-price">500</span></div>
+            <div class="menu-item"><span class="item-name">Sausage Sadeko</span><span class="item-price">280</span></div>
+            <div class="menu-item"><span class="item-name">Sausage Boiled</span><span class="item-price">250</span></div>
+            <div class="menu-item"><span class="item-name">Sausage Fry</span><span class="item-price">280</span></div>
+            <div class="menu-item"><span class="item-name">Sausage Chilli</span><span class="item-price">280</span></div>
+
+            <div class="section-header" style="margin-top: 30px;"><span>Veg Snacks</span><span>Rs.</span></div>
+            <div class="menu-item"><span class="item-name">Papad Fry/Dry (4pc)</span><span class="item-price">100</span></div>
+            <div class="menu-item"><span class="item-name">Noodels Sadeko</span><span class="item-price">140</span></div>
+            <div class="menu-item"><span class="item-name">Chat Pat</span><span class="item-price">100</span></div>
+            <div class="menu-item"><span class="item-name">Bhatta Sadeko</span><span class="item-price">160</span></div>
+            <div class="menu-item"><span class="item-name">Peanuts Sadeko</span><span class="item-price">200</span></div>
+            <div class="menu-item"><span class="item-name">French Fries</span><span class="item-price">200</span></div>
+            <div class="menu-item"><span class="item-name">Spicy French Fries</span><span class="item-price">220</span></div>
+            <div class="menu-item"><span class="item-name">Fry Casunut</span><span class="item-price">350</span></div>
+            <div class="menu-item"><span class="item-name">Cryspy Paneer Pakoda</span><span class="item-price">400</span></div>
+            <div class="menu-item"><span class="item-name">Paneer Chilli</span><span class="item-price">350</span></div>
+            <div class="menu-item"><span class="item-name">Chips Chilli</span><span class="item-price">250</span></div>
+            <div class="menu-item"><span class="item-name">Aloo Geera</span><span class="item-price">200</span></div>
+            <div class="menu-item"><span class="item-name">Veg Pakoda</span><span class="item-price">190</span></div>
+        </div>
+
+        <div class="menu-section">
+            <div class="section-header"><span>Thukpa</span><span>Rs.</span></div>
+            <div class="menu-item"><span class="item-name">Veg Thukpa</span><span class="item-price">180</span></div>
+            <div class="menu-item"><span class="item-name">Chicken Thukpa</span><span class="item-price">220</span></div>
+            <div class="menu-item"><span class="item-name">Buff Thukpa</span><span class="item-price">220</span></div>
+            <div class="menu-item"><span class="item-name">Mix Thukpa</span><span class="item-price">280</span></div>
+
+            <div class="section-header" style="margin-top: 30px;"><span>Mo:Mo</span><span>Rs.</span></div>
+            <table class="momo-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Steam</th>
+                        <th>Fried</th>
+                        <th>C/Jhol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Veg Mo:Mo</td><td>150</td><td>170</td><td>200</td></tr>
+                    <tr><td>Paneer Mo:Mo</td><td>200</td><td>220</td><td>250</td></tr>
+                    <tr><td>Chicken Mo:Mo</td><td>170</td><td>185</td><td>220</td></tr>
+                    <tr><td>Buff Mo:Mo</td><td>170</td><td>185</td><td>220</td></tr>
+                </tbody>
+            </table>
+
+            <div class="section-header" style="margin-top: 30px;"><span>Khaja Set</span><span>Rs.</span></div>
+            <div class="menu-item"><span class="item-name">Veg Khaja Set</span><span class="item-price">280</span></div>
+            <div class="menu-item"><span class="item-name">Chicken Khaja Set</span><span class="item-price">360</span></div>
+            <div class="menu-item"><span class="item-name">Buff Khaja Set</span><span class="item-price">360</span></div>
+        </div>
+
+        <div class="menu-section">
+            <div class="section-header"><span>Kids Menu</span><span>Rs.</span></div>
+            <div class="menu-item"><span class="item-name">Pizza Kido With Fries</span><span class="item-price">350</span></div>
+            <div class="menu-item"><span class="item-name">Chicken Nuggets</span><span class="item-price">200</span></div>
+
+            <div class="section-header" style="margin-top: 30px;"><span>Pizza</span><span>Rs.</span></div>
+            <div class="menu-item">
+                <span class="item-name">Pizza Margherita
+                    <span class="item-desc">(Tomato Sauce, Mozzarella Cheese, Oregano)</span>
+                </span>
+                <span class="item-price">450</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Pizza Chicken Salami
+                    <span class="item-desc">(Tomato Sauce, Chicken Salami, Slice Tomato, Mozzarella Cheese, Oregano)</span>
+                </span>
+                <span class="item-price">500</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Pizza Mushroom
+                    <span class="item-desc">(Tomato Sauce, Mozzarella Cheese, Mushroom, Garlic Slice, Green Capsicum, Oregano)</span>
+                </span>
+                <span class="item-price">500</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Pizza Chicken
+                    <span class="item-desc">(Tomato Sauce, Mozzarella Cheese, Chicken, Green Capsicum Olives, Onion, Oregano)</span>
+                </span>
+                <span class="item-price">550</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Pizza Chicken Mushroom
+                    <span class="item-desc">(Tomato Sauce, Mozzarella Cheese, Chicken, Mushroom, Olives, Green Capsicum, Oregano, Onion)</span>
+                </span>
+                <span class="item-price">600</span>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <strong>Contact Us:</strong> Bar-Pipal Restaurant & Lodge Aanbookhaireni-1, Baradi, Tanahun<br>
+            <strong>Phone:</strong> 9829120010 / 9806651199 / 9856041554<br>
+            <strong>Email:</strong> <a href="mailto:barpipal@gmail.com">barpipal@gmail.com</a> | 
+            <strong>Facebook:</strong> Bar-Pipal | <strong>Tiktok:</strong> @barpipal22
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
