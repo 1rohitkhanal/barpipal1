@@ -495,7 +495,7 @@ body {
 
 #contact h2 {
   font-size: 2rem;
-  color: #5A3825;
+  color: #000000;
   margin-bottom: 20px;
 }
 
@@ -941,4 +941,5 @@ body {
     .footer-column h3::after { left: 50%; transform: translateX(-50%); }
     .footer-socials { justify-content: center; }
 }
+
 
