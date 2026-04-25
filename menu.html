@@ -3,7 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - Bar-Pipal Restaurant & Lodge</title>
+<title>Menu & Prices | Bar Pipal Restaurant Aanbokhaireni Tanahun</title>
+<meta name="description" content="View the full menu at Bar Pipal Restaurant, Aanbokhaireni. Dal bhat, momo, thukpa, pizza, khaja set, fresh juices, beer and more. Prices starting from Rs. 30.">
+<meta name="keywords" content="Bar Pipal menu, restaurant menu Tanahun, momo Aanbokhaireni, dal bhat Tanahun, food prices Tanahun Nepal, khaja set Tanahun">
+<link rel="canonical" href="https://barpipal1.vercel.app/menu.html">
+
+6. index.html — Improve the SEO text section at the bottom
+Find:
+html<section class="seo-text">
+<h2>Best Restaurant and Lodge in Aanbokhaireni Tanahun</h2>
+</section>
+Replace with:
+html<section class="seo-text" style="padding: 40px 60px; background:#f8f9fa;">
+  <h2>Best Restaurant and Lodge in Aanbokhaireni Tanahun</h2>
+  <p style="color:#555; max-width:800px; margin: 15px auto; font-size:1rem; line-height:1.8;">
+    Bar Pipal is Aanbokhaireni's most scenic dining and stay destination, nestled beside the Marsyangdi River near Akala Devi Temple in Tanahun, Gandaki Province. Whether you're looking for a riverside restaurant with fresh organic Nepali food, a comfortable lodge room with mountain views, or a peaceful garden venue for weddings and celebrations — Bar Pipal delivers it all. We are the top-rated restaurant in Baradi, Tanahun serving momo, dal bhat, thukpa, pizza, and organic drinks.
+  </p>
+</section>
+This turns a dead heading into actual crawlable content with keywords.
+
+Quick Summary of Where Each Change Goes
+FileWhat to changeindex.htmlTitle, meta description, keywords, schema (replace + add FAQ)index.htmlSEO text section — add a paragraphabout.htmlAdd title, meta description, canonical tagmenu.htmlAdd title, meta description, canonical tag
+That's it — no design changes, no new pages needed yet. These are pure <head> and schema additions that Google reads but users never see. Do these first, then once you get the domain, update every vercel.app URL in the schema/canonical tags to barpipal.com.np.Sonnet 4.6
     <style>
         :root {
             --primary-green: #4CAF50; /* Fresh leaf green */
